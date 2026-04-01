@@ -4,7 +4,13 @@ package senai.com.praticing_security.entitiesDTO;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import lombok.*;
 
+@Setter
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 public class RequestUserDTO {
 
     @NotNull
@@ -15,5 +21,8 @@ public class RequestUserDTO {
 
     @Email
     private String email;
+
+    @NotNull
+    private String password;
 
 }
