@@ -3,7 +3,7 @@ package senai.com.praticing_security.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
-import senai.com.praticing_security.entities.enums.Roles;
+import senai.com.praticing_security.entities.enums.Role;
 
 @Entity
 @Setter
@@ -26,7 +26,7 @@ public class UserEntity {
     private String email;
 
     @Enumerated(EnumType.STRING)
-    private Roles roles;
+    private Role role;
 
     private String password;
 }

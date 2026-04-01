@@ -3,7 +3,7 @@ package senai.com.praticing_security.services;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import senai.com.praticing_security.entities.UserEntity;
-import senai.com.praticing_security.entities.enums.Roles;
+import senai.com.praticing_security.entities.enums.Role;
 import senai.com.praticing_security.entitiesDTO.RequestUserDTO;
 import senai.com.praticing_security.repositories.UserRepository;
 
@@ -24,7 +24,7 @@ public class UserService {
         user.setName(dto.getName());
         user.setAge(dto.getAge());
         user.setPassword(passwordEncoder.encode(dto.getPassword()));
-        user.setRoles(Roles.ROLE_USER);
+        user.setRole(Role.ROLE_USER);
 
         userRepository.save(user);
         return user;
