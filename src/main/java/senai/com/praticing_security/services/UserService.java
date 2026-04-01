@@ -4,7 +4,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import senai.com.praticing_security.entities.UserEntity;
 import senai.com.praticing_security.entities.enums.Role;
-import senai.com.praticing_security.entitiesDTO.RequestUserDTO;
+import senai.com.praticing_security.entitiesDTO.user.RequestUserDTO;
 import senai.com.praticing_security.repositories.UserRepository;
 
 @Service
