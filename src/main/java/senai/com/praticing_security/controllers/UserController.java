@@ -1,10 +1,7 @@
 package senai.com.praticing_security.controllers;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import senai.com.praticing_security.entitiesDTO.user.RequestUserDTO;
 import senai.com.praticing_security.services.UserService;
 
@@ -19,7 +16,13 @@ public class UserController {
     }
 
     @PostMapping("/user")
-    public ResponseEntity create(@RequestBody RequestUserDTO dto) {
+    public ResponseEntity<?> create(@RequestBody RequestUserDTO dto) {
         return ResponseEntity.ok(userService.createUser(dto));
     }
+
+    @GetMapping("/admin")
+    public String admin(){
+        return "Acesso ADMIN";
+    }
+
 }
