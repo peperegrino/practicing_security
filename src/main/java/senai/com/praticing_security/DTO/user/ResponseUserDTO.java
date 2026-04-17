@@ -1,4 +1,4 @@
-package senai.com.praticing_security.entitiesDTO.user;
+package senai.com.praticing_security.DTO.user;
 
 
 
