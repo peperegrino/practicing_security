@@ -1,4 +1,5 @@
-package senai.com.praticing_security.security;
+package senai.com.praticing_security.Config;
+
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,31 +15,31 @@ import static org.springframework.security.config.Customizer.withDefaults;
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfig {
+public class Security {
 
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
         http
-          .csrf(csrf -> csrf.disable())
-          .authorizeHttpRequests(auth -> auth
-          .requestMatchers("/user").permitAll()
-          .requestMatchers("/admin").hasRole("ADMIN")
-          .anyRequest().authenticated()
-          )
-          .httpBasic(withDefaults());
-          return http.build();
-}
+                .csrf(csrf -> csrf.disable())
+                .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/user").permitAll()
+                        .requestMatchers("/admin").hasRole("ADMIN")
+                        .anyRequest().authenticated()
+                )
+                .httpBasic(withDefaults());
+        return http.build();
+    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-    return  new BCryptPasswordEncoder();
+        return new BCryptPasswordEncoder();
     }
-}
 
 
-@Bean
-public AuthenticationManager authenticationManager(AuthenticationConfiguration config)
-    throws Exception {
-    return config.getAuthenticationManager();
+    @Bean
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration config)
+            throws Exception {
+        return config.getAuthenticationManager();
+    }
 }

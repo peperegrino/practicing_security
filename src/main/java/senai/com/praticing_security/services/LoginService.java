@@ -1,6 +1,7 @@
 package senai.com.praticing_security.services;
 
 import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.stereotype.Service;
 
 import javax.crypto.SecretKey;
@@ -17,8 +18,16 @@ public class LoginService {
     public String generateToken(String email) {
         return  Jwts.builder()
                 .setSubject(email)
-                .signWith(SignatureAlgotithm.HS256,SECRET)
+                .signWith(SignatureAlgorithm.HS256,SECRET)
                 .compact();
+    }
+
+    public String getEmail(String token) {
+        return Jwts.parser()
+                .setSigningKey(SECRET)
+                .parseClaimsJws(token)
+                .getBody()
+                .getSubject();
     }
 
 
