@@ -17,6 +17,13 @@ import static org.springframework.security.config.Customizer.withDefaults;
 @EnableWebSecurity
 public class Security {
 
+    private final JwtFilter jwtFilter;
+
+    public Security(JwtFilter jwtFilter) {
+        this.jwtFilter = jwtFilter;
+    }
+
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
