@@ -2,7 +2,7 @@ package senai.com.praticing_security.controllers;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import senai.com.praticing_security.entitiesDTO.user.RequestUserDTO;
+import senai.com.praticing_security.DTO.user.RequestUserDTO;
 import senai.com.praticing_security.services.UserService;
 
 @RestController
